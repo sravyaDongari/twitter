@@ -253,7 +253,7 @@ app.get("/tweets/:tweetId/likes",authenticateToken,async(request,response)=>{
         response.status(401)
         response.send("Invalid Request")
     }
-}
+
 
 })
 //API 8
@@ -270,7 +270,7 @@ app.get("/tweets/:tweetId/replies",authenticateToken,async(request,response)=>{
     follower INNER JOIN tweet ON tweet.user_id=follower.following_user_id INNER JOIN reply ON reply.tweet_id =tweet.tweet_id
     INNER JOIN user ON user.user_id=reply.user_id
     WHERE 
-    tweet.tweet_id=${tweet_id} AND follower.follower_user_id=${user_id}
+    tweet.tweet_id='${tweet_id}' AND follower.follower_user_id=${user_id}
     
     `
     const repliedUsers=await db.all(getRepliedUsersQuery)
