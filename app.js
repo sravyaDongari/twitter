@@ -56,7 +56,7 @@ const authenticateToken = (request, response, next) => {
     });
   }
 };
-// API -1
+// API -1 post
 app.post("/register",async(request,response)=>{
     const {username,password,name,gender}=request.body 
     const selectUserQuery=`SELECT * FROM user WHERE username='${username}'`;
